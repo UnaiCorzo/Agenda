@@ -98,6 +98,9 @@
 
         // Add new entry
         $agenda->addEntry($name, $email);
+ 
+        // Save all data
+        setcookie('agenda', json_encode($agenda->getAgenda()), 0);
 
         // Display internal data
         $agenda->toString();
