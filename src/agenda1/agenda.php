@@ -69,6 +69,13 @@
         }
     }
 
+    // Create new instance
+    $agenda = new Agenda();
+
+    // Initialize empty arrays for data
+    $names = [];
+    $emails = [];
+
     ?>
 
 </body>
