@@ -76,6 +76,20 @@
     $names = [];
     $emails = [];
 
+    // Add previous entries
+    if (isset($_POST['names']) && isset($_POST['emails'])) {
+        // Separate different entries
+        $names = explode(";", $_POST['names']);
+        $emails = explode(";", $_POST['emails']);
+
+        // Add entries
+        for ($i = 0; $i < count($names); $i++) {
+            if ($names[$i] != "" && $emails[$i] != "") {
+                $agenda->addEntry($names[$i], $emails[$i]);
+            }
+        }
+    }
+
     // Check whether new data has been submitted
     if (isset($_POST['name']) && isset($_POST['email'])) {
         // Remove HTML tags
