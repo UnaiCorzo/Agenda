@@ -21,6 +21,12 @@
 
     ?>
 
+    <form method='post'>
+        <p>Nombre: <input type="text" name="name" value="<?php echo (isset($_POST['name'])) ? $_POST['name'] : ""; ?>"></p>
+        <p>Email: <input type="text" name="email" value="<?php echo (isset($_POST['email'])) ? $_POST['email'] : ""; ?>"></p>
+        <input type="submit" value="Enviar" name="submit"><br><br>
+    </form>
+
     <?php
 
     // Class specification
