@@ -90,11 +90,11 @@
     // Create new instance
     $agenda = new Agenda();
 
-    // Save current data in cookie
-    if (!isset($_COOKIE['agenda'])) {
-        setcookie('agenda', json_encode($agenda->getAgenda()), 0);
+    // Save current data in session
+    if (!isset($_SESSION['agenda'])) {
+        $_SESSION['agenda'] = $agenda->getAgenda();
     } else {
-        $agenda->setAgenda(json_decode($_COOKIE['agenda'], true));
+        $agenda->setAgenda($_SESSION['agenda']);
     }
 
     // Check whether new data has been submitted
