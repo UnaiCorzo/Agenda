@@ -107,7 +107,7 @@
         $agenda->addEntry($name, $email);
 
         // Save all data
-        setcookie('agenda', json_encode($agenda->getAgenda()), 0);
+        $_SESSION['agenda'] = $agenda->getAgenda();
 
         // Display internal data
         $agenda->toString();
