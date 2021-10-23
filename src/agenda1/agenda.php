@@ -78,6 +78,17 @@
 
     ?>
 
+    <form method="post">
+        <p>Nombre: <input type="text" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ""; ?>"></p>
+        <p>Email: <input type="text" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>"></p>
+        <input type="submit" value="Enviar" name="submit">
+
+        <!-- Save previous data -->
+        <input type="hidden" name="names" value="<?php echo !empty($names) ? implode(";", $names) : ""; ?>">
+        <input type="hidden" name="emails" value="<?php echo !empty($emails) ? implode(";", $emails) : ""; ?>">
+        <input type="hidden" name="username_h" value="<?php echo $username; ?>">
+    </form>
+
 </body>
 
 </html>
