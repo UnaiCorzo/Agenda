@@ -90,6 +90,19 @@
         $agenda->setAgenda(json_decode($_COOKIE['agenda'], true));
     }
 
+    // Check whether new data has been submitted
+    if (isset($_POST["name"]) && isset($_POST["email"])) {
+        // Remove HTML tags
+        $name = strip_tags($_POST['name']);
+        $email = strip_tags($_POST['email']);
+
+        // Add new entry
+        $agenda->addEntry($name, $email);
+
+        // Display internal data
+        $agenda->toString();
+    }
+
     ?>
 
 </body>
