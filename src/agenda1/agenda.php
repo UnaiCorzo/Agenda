@@ -117,6 +117,13 @@
         <input type="hidden" name="username_h" value="<?php echo $username; ?>">
     </form>
 
+    <?php
+
+    // Display internal data
+    $agenda->toString();
+
+    ?>
+
 </body>
 
 </html>
