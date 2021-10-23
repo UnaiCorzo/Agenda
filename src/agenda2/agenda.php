@@ -66,6 +66,11 @@
             return $this->agenda;
         }
 
+        // Replace current data with new one
+        function setAgenda($new_agenda) {
+            $this->agenda = $new_agenda;
+        }
+
         // Show internal data
         function toString() {
             echo "<h4>Agenda</h4>";
