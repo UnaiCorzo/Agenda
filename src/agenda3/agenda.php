@@ -10,13 +10,20 @@
 
     <?php
 
-    // Save username in cookie
-    if (!isset($_COOKIE['username'])) {
-        $username = htmlentities($_POST['username']);
-        setcookie('username', json_encode($username), 0);
-        echo "<h1>Agenda de" . $username . "</h1>";
+    // Start new session
+    session_start();
+
+    ?>
+
+    <?php
+
+    // Save username in session
+    if (!isset($_SESSION['username'])) {
+        $username = $_POST['username'];
+        $_SESSION['username'] = $username;
+        echo "<h1>Agenda de " . $username . "</h1>";
     } else {
-        echo "<h1>Agenda de " . json_decode($_COOKIE['username'], true) . "</h1>";
+        echo "<h1>Agenda de " . $_SESSION['username'] . "</h1>";
     }
 
     ?>
