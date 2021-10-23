@@ -76,6 +76,20 @@
     $names = [];
     $emails = [];
 
+    // Check whether new data has been submitted
+    if (isset($_POST['name']) && isset($_POST['email'])) {
+        // Remove HTML tags
+        $name = strip_tags($_POST['name']);
+        $email = strip_tags($_POST['email']);
+
+        // Add new entry
+        $agenda->addEntry($name, $email);
+
+        // Save all data
+        $names = array_keys($agenda->getAgenda());
+        $emails = array_values($agenda->getAgenda());
+    }
+
     ?>
 
     <form method="post">
